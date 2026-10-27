@@ -1,0 +1,25 @@
+# Camera & Video Stream Configuration
+camera:
+  # Note: The RTSP URI below is an example previously referenced in product documentation.
+  # The actual endpoint must be verified against the specific C12 hardware, firmware, and network bridge.
+  rtsp_url: "rtsp://192.168.144.108:555/stream=2"
+  rtsp_transport: "tcp"                # "tcp" or "udp" (TCP preferred for zero packet drop)
+  connection_timeout_ms: 5000          # Timeout for initial connection attempt
+  read_timeout_ms: 3000                # Timeout for waiting on frames
+  reconnect_delay_seconds: 2.0         # Wait time before retry on stream drop
+  max_reconnect_attempts: 5
+
+specifications:
+  model: "Skydroid C12 Thermal & Visible Gimbal"
+  thermal_resolution: [384, 288]
+  thermal_lens_focal_length_mm: 7.0
+  thermal_fov_horizontal_deg: 24.8
+  thermal_fov_vertical_deg: 18.7
+  spectral_band_um: "8-14"             # LWIR
+  max_thermal_fps: 25.0
+  gimbal_stabilization: "3-axis"
+
+buffer:
+  queue_type: "latest_frame"           # Drops stale frames, zero latency accumulation
+  max_capacity: 1
+

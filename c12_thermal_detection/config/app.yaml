@@ -1,0 +1,23 @@
+# Application Configuration
+app:
+  name: "C12 Thermal Human Detection Ground Station"
+  version: "1.0.0"
+  window:
+    title: "C12 Aerial Thermal Detection Ground Station"
+    width: 1920
+    height: 1080
+    min_width: 1280
+    min_height: 720
+    fullscreen: false
+
+storage:
+  recordings_dir: "recordings"
+  snapshots_dir: "snapshots"
+  logs_dir: "logs"
+  outputs_dir: "outputs"
+
+performance:
+  ui_refresh_hz: 30
+  stats_update_interval_ms: 250
+  max_log_history_entries: 500
+

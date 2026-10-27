@@ -1,0 +1,10 @@
+# Core Vision & ML Libraries
+ultralytics>=8.0.100
+opencv-python>=4.8.0
+
+# Deep Learning Framework (Usually auto-installed by ultralytics, but safe to specify)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Data Processing
+numpy>=1.23.0

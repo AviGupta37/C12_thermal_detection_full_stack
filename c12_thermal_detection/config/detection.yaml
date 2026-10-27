@@ -1,0 +1,28 @@
+# YOLO Thermal Detection Configuration
+model:
+  checkpoint_path: "models/yolo11n.pt"  # Pretrained baseline model or fine-tuned best.pt
+  device: "cuda:0"                      # "cuda:0" or "cpu" (auto-detected fallback if unavailable)
+  imgsz: 640                           # Model input resolution (640 or 384)
+  half: true                           # FP16 half precision for CUDA acceleration
+
+inference:
+  conf_threshold: 0.35                 # Detection confidence threshold
+  iou_threshold: 0.45                  # Non-maximum suppression IoU threshold
+  target_classes: [0]                  # 0: person
+  max_det: 50                          # Maximum detections per frame
+
+preprocessing:
+  enable_clahe: false                  # Contrast Limited Adaptive Histogram Equalization
+  clahe_clip_limit: 2.0
+  clahe_grid_size: [8, 8]
+  normalize: false                     # Standard min-max normalization
+
+visualization:
+  show_boxes: true
+  show_labels: true
+  show_confidences: true
+  box_thickness: 2
+  box_color: [0, 255, 0]              # BGR format (Green for person)
+  text_scale: 0.6
+  text_thickness: 1
+

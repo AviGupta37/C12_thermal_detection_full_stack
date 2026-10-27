@@ -1,0 +1,57 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project generated artifacts & media
+recordings/*.mp4
+recordings/*.avi
+recordings/*.mkv
+snapshots/*.png
+snapshots/*.jpg
+logs/*.log
+logs/*.csv
+runs/
+outputs/
+c12_thermal_detection/recordings/*.mp4
+c12_thermal_detection/recordings/*.avi
+c12_thermal_detection/recordings/*.mkv
+c12_thermal_detection/snapshots/*.png
+c12_thermal_detection/snapshots/*.jpg
+c12_thermal_detection/logs/*.log
+c12_thermal_detection/logs/*.csv
+c12_thermal_detection/runs/
+c12_thermal_detection/outputs/
+
+# Raw dataset videos and checkpoints
+datasets/raw/*
+datasets/extracted_frames/*
+c12_thermal_detection/datasets/raw/*
+c12_thermal_detection/datasets/extracted_frames/*
+models/*.pt
+models/*.onnx
+c12_thermal_detection/models/*.pt
+c12_thermal_detection/models/*.onnx
+!models/README.md
+!c12_thermal_detection/models/README.md
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+.env

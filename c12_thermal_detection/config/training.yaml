@@ -1,0 +1,37 @@
+# YOLO Fine-Tuning Configuration for Skydroid C12 Thermal Imagery
+training:
+  model_checkpoint: "models/yolo11n.pt" # Starting weights (small pretrained baseline)
+  data_yaml: "datasets/yolo_dataset/data.yaml"
+  epochs: 100
+  imgsz: 640                           # Native sensor is 384x288; 640 provides adequate resolution for small targets
+  batch_size: 16                       # Suitable for 11 GB VRAM (RTX 2080 Ti); reduce to 8 or 4 if OOM occurs
+  device: "0"                          # CUDA GPU device index or 'cpu'
+  workers: 8                           # DataLoader workers
+  patience: 20                         # Early stopping patience
+  save_period: 10                      # Save checkpoint every N epochs
+  project: "runs/training"             # Base output directory
+  name: "c12_thermal_baseline"         # Specific experiment run name
+  seed: 42                             # Reproducibility seed
+  exist_ok: false
+
+hyperparameters:
+  lr0: 0.01                            # Initial learning rate
+  lrf: 0.01                            # Final learning rate fraction
+  momentum: 0.937                      # SGD momentum/Adam beta1
+  weight_decay: 0.0005                 # Optimizer weight decay
+  warmup_epochs: 3.0                   # Warmup epochs
+  box: 7.5                             # Box loss gain
+  cls: 0.5                             # Class loss gain
+  dfl: 1.5                             # Distribution focal loss gain
+
+augmentation:
+  hsv_h: 0.015                         # Minimal hue shift (thermal palette)
+  hsv_s: 0.7                           # Saturation shift
+  hsv_v: 0.4                           # Value (brightness) shift
+  degrees: 10.0                        # Rotation degrees for aerial nadir variability
+  translate: 0.1                       # Translation fraction
+  scale: 0.5                           # Image scale (+/- gain)
+  fliplr: 0.5                          # Horizontal flip probability
+  flipud: 0.2                          # Vertical flip probability (useful for nadir aerial views)
+  mosaic: 1.0                          # Mosaic augmentation probability
+

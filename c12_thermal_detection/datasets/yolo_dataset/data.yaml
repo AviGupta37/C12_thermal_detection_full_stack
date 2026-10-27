@@ -1,0 +1,9 @@
+# Dataset YAML configuration for Skydroid C12 Thermal Human Detection
+path: .
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: person
+
